@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy - NMEA Bluetooth Access</title>
+<meta name="description" content="How NMEA Bluetooth Access handles location, sensor, SMS, Gmail and X data.">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<main>
+<p class="crumbs"><a href="/nmea-bluetooth-access/">NMEA Bluetooth Access</a></p>
+<h1>NMEA Bluetooth Access - Privacy Policy</h1>
+<p class="meta">Effective November 4, 2026 &middot; Jason Petrovffsky</p>
+
+<h2>Summary</h2>
+<p>NMEA Bluetooth Access sends nothing to its developer. Your location and sensor readings go only to the Bluetooth device you connect, and the optional messaging features send only what that device asks them to send.</p>
+<p>The app is published on Google Play by Jason Petrovffsky ("we"). It turns your phone's GPS and sensors into NMEA 0183 data for chartplotters, laptops and other navigation equipment. We run no servers, and the app has no ads, analytics, crash reporting or tracking.</p>
+<p>This policy applies to version 3.0 and later of the Android app.</p>
+
+<h2>What the app uses</h2>
+<p>The app uses each item below only for the feature named, and only while that feature is on. It never reads your saved texts, contacts, call history, photos or files.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Information</th><th>Permission</th><th>Used for</th><th>Where it goes</th></tr>
+</thead>
+<tbody>
+<tr><td>Precise location from GPS</td><td>Location</td><td>Position, speed, course and time sentences, and the magnetic declination that turns compass headings into true headings</td><td>Your paired Bluetooth device</td></tr>
+<tr><td>Compass, accelerometer, gyroscope, pressure, temperature and humidity readings</td><td>None</td><td>Heading, roll, pitch, rate of turn and weather sentences</td><td>Your paired Bluetooth device</td></tr>
+<tr><td>Name and address of the Bluetooth device you pick</td><td>Nearby devices</td><td>Connecting to it, and reconnecting next time</td><td>Stays on your phone</td></tr>
+<tr><td>Incoming texts that start with <code>$SMS,</code>, with the sender's number (premium, off by default)</td><td>SMS</td><td>Relaying them to your connected device</td><td>Your paired Bluetooth device</td></tr>
+<tr><td>Texts your connected device asks the app to send (premium, off by default)</td><td>SMS</td><td>Sending them</td><td>The recipient, through your mobile carrier</td></tr>
+<tr><td>Your Gmail address and permission to send email (premium, off until you connect)</td><td>Google sign-in</td><td>Sending the emails your connected device asks for, and showing which account is connected</td><td>Emails go to Gmail; the address stays on your phone</td></tr>
+<tr><td>Your X account (premium, off until you connect)</td><td>X sign-in</td><td>Posting the text your connected device sends with <code>%TWEET%</code></td><td>Posts go to X</td></tr>
+<tr><td>Whether you bought the premium upgrade</td><td>Google Play</td><td>Unlocking SMS, Gmail and X</td><td>Checked with Google Play</td></tr>
+</tbody>
+</table>
+</div>
+<p>Texts that don't start with <code>$SMS,</code> are ignored and never stored. The app adds nothing to the texts, emails or posts your device sends, not even your location. The Notifications permission only shows the ongoing notification while the app streams.</p>
+
+<h2>Where information goes</h2>
+<p>Nothing the app handles reaches us; each item goes only to the destination shown here.</p>
+<figure class="flow">
+  <div class="node"><strong>Your phone</strong><span>NMEA Bluetooth Access</span><small>Stores settings, no history</small></div>
+  <div class="arrow" aria-hidden="true">&rarr;</div>
+  <ul>
+    <li class="node main"><strong>Your paired Bluetooth device</strong><span>Position, heading and sensor sentences</span><small>Relayed $SMS texts &middot; encrypted Bluetooth link</small></li>
+    <li class="node"><strong>Your mobile carrier</strong><span>Texts your device asks the app to send</span><small>Premium, off by default</small></li>
+    <li class="node"><strong>Gmail (Google)</strong><span>Emails your device asks the app to send</span><small>Premium, off until you connect &middot; HTTPS</small></li>
+    <li class="node"><strong>X</strong><span>Posts your device asks the app to send</span><small>Premium, off until you connect &middot; HTTPS</small></li>
+    <li class="node"><strong>Google Play</strong><span>Whether you bought premium</span><small>Payment is handled by Google Play</small></li>
+  </ul>
+  <figcaption>Data leaves the phone only for the destinations you choose. Premium features stay off until you turn them on.</figcaption>
+</figure>
+<p>Each service handles what it receives under its own privacy policy: <a href="https://policies.google.com/privacy">Google</a>, <a href="https://x.com/en/privacy">X</a> and your mobile carrier. The app talks to Gmail and X directly from your phone, with no server in between. We don't sell or share your information, and we don't use it for advertising.</p>
+
+<h2>Storage, security and retention</h2>
+<p>Everything the app keeps stays on your phone until you erase it. We hold no copy, so there is nothing for us to retain or delete.</p>
+<ul>
+<li><strong>Settings:</strong> the name and address of your Bluetooth device, output and interval choices, calibration offsets, which premium features are on, and the address of a connected Gmail account. Kept until you change them, clear the app's storage or uninstall it.</li>
+<li><strong>X sign-in:</strong> the access tokens and your X username, encrypted with a key held in the phone's Android Keystore.</li>
+<li><strong>Gmail sign-in:</strong> Google Play services holds the permission to send; the app keeps only your address.</li>
+<li><strong>On-screen log:</strong> the last 500 lines sent or received, held in memory only and gone when the app closes.</li>
+<li><strong>Android backup:</strong> if you use Android backup, Android may copy the settings above to your Google account and to a new phone. X sign-in tokens are left out.</li>
+</ul>
+<p>In transit, the Bluetooth link to a paired device is encrypted, and requests to Gmail and X use HTTPS. Texts travel over your carrier's network like any other text message.</p>
+
+<h2>Your choices and deleting data</h2>
+<p>You can turn off any feature and erase all of the app's data yourself.</p>
+<ul>
+<li><strong>Permissions:</strong> turn location, nearby devices, SMS or notifications off in Android's settings. The app needs nearby devices to connect at all; without location it still sends the other sensor data.</li>
+<li><strong>Premium features:</strong> on the app's "SMS, Gmail &amp; X" screen, turn the SMS relay off, tap "Disconnect Gmail" to revoke the app's Gmail access, or tap "Disconnect X" to revoke its X sign-in.</li>
+<li><strong>Outside the app:</strong> you can also remove the app's access in your <a href="https://myaccount.google.com/connections">Google Account</a> or in the connected apps list in X's settings.</li>
+<li><strong>Delete everything:</strong> in Android's settings, open Apps, then NMEA Bluetooth Access, then Storage, and clear storage. Uninstalling the app does the same.</li>
+</ul>
+<p>Texts, emails and posts you already sent are kept by your carrier, Gmail or X under their own policies, so delete them there.</p>
+
+<h2>Google user data</h2>
+<p>NMEA Bluetooth Access's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+<p>When you connect Gmail, the app asks Google for two permissions: send email on your behalf (<code>gmail.send</code>) and see your email address (<code>userinfo.email</code>). It uses them only to send the emails your connected device asks for and to show which account is connected. It cannot read your mailbox, and it does not use Google user data for advertising, transfer it to anyone else, or let any person read it.</p>
+
+<h2>Children</h2>
+<p>The app is a navigation tool for adults and is not directed to children under 13. Because it sends nothing to us, we hold no information about anyone, including children.</p>
+
+<h2>Changes and contact</h2>
+<p>If this policy changes, we will update this page and the date at the top before the change takes effect.</p>
+<p>Questions or requests about privacy: <a href="mailto:jasonpetrovffsky@gmail.com">jasonpetrovffsky@gmail.com</a>. The app's developer is Jason Petrovffsky.</p>
+</main>
+<footer><a href="/nmea-bluetooth-access/">NMEA Bluetooth Access</a> &middot; <a href="/">Jason Petrovffsky</a></footer>
+</body>
+</html>
