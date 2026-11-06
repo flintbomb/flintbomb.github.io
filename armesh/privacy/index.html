@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy - ARmesh</title>
+<meta name="description" content="How ARmesh handles your location, what it keeps on your phone, and what an ARmesh node broadcasts over the air.">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<main>
+<p class="crumbs"><a href="/armesh/">ARmesh</a></p>
+<h1>ARmesh - Privacy Policy</h1>
+<p class="meta">Effective November 6, 2026 &middot; Jason Petrovffsky</p>
+
+<h2>Summary</h2>
+<p>ARmesh sends nothing about you to its developer. There is no sign-in, no account, no ads, no analytics and no crash reporting, and we run no server that receives your position.</p>
+<p>But ARmesh is a position-sharing app, and the sharing is the point. Your location goes over Bluetooth to the ARmesh node you connect, and that node broadcasts it <strong>unencrypted over its radio to whoever is in range</strong> &mdash; not only to your group. <a href="#air">What everyone in range can hear</a> is the section to read before you carry one.</p>
+<p>The app is published on Google Play by Jason Petrovffsky ("we"). It pairs with an ARmesh node, a small LoRa radio device, and shows where the other nodes in your group are on a map, in places with no phone signal.</p>
+<p>This policy applies to version 1.0 and later of the Android app.</p>
+
+<h2>What the app uses</h2>
+<p>The app uses each item below only for the feature named. It never reads your texts, contacts, call history, photos or files, and it asks you to sign in to nothing.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Information</th><th>Permission</th><th>Used for</th><th>Where it goes</th></tr>
+</thead>
+<tbody>
+<tr><td>Precise location from GPS</td><td>Location</td><td>Your own position on the map, and the position your node puts on the air</td><td>Your paired node, then broadcast by its radio</td></tr>
+<tr><td>The rotation sensor (compass, accelerometer and gyroscope together)</td><td>None</td><td>The arrow that points at the person you are heading for</td><td>Stays on your phone</td></tr>
+<tr><td>Name and address of the node you pick</td><td>Nearby devices</td><td>Connecting to it, and reconnecting next time</td><td>Stays on your phone</td></tr>
+<tr><td>The short name you give your own node, up to eight characters</td><td>None</td><td>Labelling you on other people's maps</td><td>Your node, then broadcast in every beacon</td></tr>
+<tr><td>Names you give other people's nodes</td><td>None</td><td>Labelling them on your own map</td><td>Stays on your phone</td></tr>
+<tr><td>Your group: its id, its name, and the node id of each member</td><td>None</td><td>Deciding who appears on your tracking screen</td><td>Your node, and into the invite you show as a QR code or grant over the radio</td></tr>
+<tr><td>The camera, while you are scanning a group invite</td><td>Camera</td><td>Reading the QR code on someone else's screen</td><td>Nowhere. No photo is saved and nothing is sent</td></tr>
+<tr><td>An alarm you raise</td><td>None</td><td>Asking your group for help, or everyone for help in an emergency</td><td>Broadcast by radio, to everyone in range</td></tr>
+<tr><td>The map area you are looking at</td><td>None</td><td>Downloading the map tiles to draw it</td><td>OpenTopoMap's tile servers</td></tr>
+<tr><td>A check for published node firmware, once each time a node connects</td><td>None</td><td>Telling you an update for your node exists</td><td>Our firmware file host</td></tr>
+</tbody>
+</table>
+</div>
+<p>The ongoing notification, and the foreground service behind it, exist so the app keeps sending your position while the phone is in a pocket. Without them Android stops location updates when you put the phone away, and your marker would freeze on everyone else's map while still looking live &mdash; which in an emergency is worse than showing nothing at all.</p>
+
+<h2>Where information goes</h2>
+<p>Nothing the app handles reaches us. Each item goes only to the destination shown here.</p>
+<figure class="flow">
+  <div class="node"><strong>Your phone</strong><span>ARmesh</span><small>Settings and names &middot; no position history</small></div>
+  <div class="arrow" aria-hidden="true">&rarr;</div>
+  <ul>
+    <li class="node main"><strong>Your paired ARmesh node</strong><span>Position, your node name, group id, alarm</span><small>Bluetooth, then broadcast by radio</small></li>
+    <li class="node"><strong>Anyone in radio range</strong><span>Node id, name, position, group id, alarm</span><small>Unencrypted &middot; not only your group</small></li>
+    <li class="node"><strong>OpenTopoMap</strong><span>Which map tiles you ask for</span><small>HTTPS &middot; carries your IP address</small></li>
+    <li class="node"><strong>Our firmware host</strong><span>A request for the published release file</span><small>HTTPS &middot; carries your IP address, no position</small></li>
+  </ul>
+  <figcaption>The radio broadcast is the one place your position goes to people you did not choose.</figcaption>
+</figure>
+<p>Map tiles come from <a href="https://opentopomap.org/about">OpenTopoMap</a>, which handles what it receives under its own policy. A tile request carries your phone's IP address and says which part of the world you are looking at, which is a rough indication of where you are; it does not carry your GPS position, your name or your node id. The firmware check asks our file host (Supabase Storage) for one small file, and, if you choose to install an update, for the firmware itself. Those requests carry your IP address as any web request does, and nothing else about you.</p>
+<p>We don't sell or share your information, and nothing in the app is used for advertising.</p>
+
+<h2 id="air">What everyone in range can hear</h2>
+<p>An ARmesh node transmits, in the clear and on a public radio band, its node id, the eight-character name you gave it, its position and altitude, the id of the group it is in, and whether an alarm is raised. <strong>There is no encryption.</strong> Anyone within range running compatible hardware can receive all of it, whether or not you know them and whether or not they are in your group. We cannot know who that is, and neither can you.</p>
+<p>The group roster decides whose markers <em>your app</em> draws. It is not access control. The <strong>Private</strong> setting and hiding a node are the same kind of thing: the app describes Private as "hidden from other devices unless explicitly tracked", and that is a rule the ARmesh app follows when it draws a map, not something that stops the radio transmitting or stops other software from listening.</p>
+<p>One thing deliberately overrides the rest. An <strong>emergency</strong> alarm is broadcast to everyone in range and is shown even by phones that had you private or hidden. That is its purpose: it exists so people who would not normally see you can come and find you.</p>
+<p>So treat your position, while a node of yours is powered on, as public, and put nothing in a node name you would not say out loud. A position that has been transmitted cannot be recalled &mdash; the nodes and phones that heard it keep what they heard, and we have no way to reach them.</p>
+
+<h2>Storage, security and retention</h2>
+<p>Everything the app keeps stays on your phone until you erase it. We hold no copy, so there is nothing for us to retain or delete.</p>
+<ul>
+<li><strong>Settings:</strong> the address of the last node you connected to, the name you gave your own node, the names you gave other nodes, which nodes you hide or follow, and your group's id, name and roster. Kept until you change them, clear the app's storage or uninstall it.</li>
+<li><strong>No position history:</strong> positions live in memory while the app is running and are gone when it stops. The app records no track, keeps no history of where you or anyone else has been, and writes no position to storage.</li>
+<li><strong>Map tiles:</strong> the tiles you have viewed are cached on the phone so the map still draws when you are offline. Clearing the app's storage removes them.</li>
+<li><strong>Android backup:</strong> if you use Android backup, Android may copy the settings above to your Google account and on to a new phone.</li>
+</ul>
+<p>In transit: tile and firmware requests use HTTPS, and firmware is refused unless its signature and checksum match what the publisher signed, so a tampered file cannot reach your node. The Bluetooth link between the phone and the node is short range and direct, with no server in between, but it is not itself encrypted &mdash; and neither is the radio broadcast, as above. Nothing in ARmesh should be treated as a confidential channel.</p>
+
+<h2>Your choices and deleting data</h2>
+<ul>
+<li><strong>Stop transmitting:</strong> power the node off. That is the only thing that reliably stops the broadcast. Disconnecting the phone stops your phone's position from reaching the node, but a node with its own GPS carries on transmitting its own.</li>
+<li><strong>Be less visible:</strong> on the app's config screen, set your node to Private, so other ARmesh apps hide you unless someone has deliberately chosen to track you.</li>
+<li><strong>Leave the group:</strong> "Leave group" on the group screen takes you off your own roster and the group off your phone.</li>
+<li><strong>Permissions:</strong> turn location or nearby devices off in Android's settings. Without nearby devices the app cannot reach a node at all. Without location it still connects and still shows other people; your own position then comes only from the node's own GPS, if it has one.</li>
+<li><strong>Delete everything:</strong> in Android's settings, open Apps, then ARmesh, then Storage, and clear storage. Uninstalling the app does the same.</li>
+<li><strong>No account to delete:</strong> the app has no sign-in and we hold no profile or record of you, so there is nothing to ask us to erase.</li>
+</ul>
+
+<h2>Children</h2>
+<p>ARmesh is an outdoor safety and navigation tool for adults and is not directed to children under 13. Because it sends nothing to us, we hold no information about anyone, including children. A node a child carries broadcasts its position exactly like any other, so an adult should decide whether to hand one over.</p>
+
+<h2>Changes and contact</h2>
+<p>If this policy changes, we will update this page and the date at the top before the change takes effect.</p>
+<p>Questions or requests about privacy: <a href="mailto:jasonpetrovffsky@gmail.com">jasonpetrovffsky@gmail.com</a>. The app's developer is Jason Petrovffsky.</p>
+</main>
+<footer><a href="/armesh/">ARmesh</a> &middot; <a href="/">Jason Petrovffsky</a></footer>
+</body>
+</html>
